@@ -1,0 +1,185 @@
+
+// 12 column grid using flexbox
+// Drop-in replacement for Twitter Bootstrap's grid
+// author: @camskene
+
+/*----------------------------------------------------------------
+  box-sizing
+----------------------------------------------------------------*/
+
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
+/*----------------------------------------------------------------
+  variables
+----------------------------------------------------------------*/
+
+$total-columns: 12;
+$gutter-width: 30px;
+
+$small: 768px;
+$medium: 992px;
+$large: 1200px;
+
+/*----------------------------------------------------------------
+  breakpoints
+----------------------------------------------------------------*/
+
+@mixin breakpoint($size) {
+  @media (min-width: $size) {
+    @content;
+  }
+}
+
+/*----------------------------------------------------------------
+  grid alignment
+----------------------------------------------------------------*/
+
+@mixin grid-alignment($size) {
+  .start-#{$size} {
+    justify-content: flex-start;
+    text-align: start;
+  }
+
+  .center-#{$size} {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .end-#{$size} {
+    justify-content: flex-end;
+    text-align: end;
+  }
+
+  .top-#{$size} {
+    align-items: flex-start;
+  }
+
+  .middle-#{$size} {
+    align-items: center;
+  }
+
+  .bottom-#{$size} {
+    align-items: flex-end;
+  }
+
+  .around-#{$size} {
+    justify-content: space-around;
+  }
+
+  .between-#{$size} {
+    justify-content: space-between;
+  }
+
+  .first-#{$size} {
+    order: -1;
+  }
+
+  .last-#{$size} {
+    order: 1;
+  }
+}
+
+/*----------------------------------------------------------------
+  column widths
+----------------------------------------------------------------*/
+
+@mixin column-widths($size) {
+  @for $i from 1 through $total-columns {
+    .col-#{$size}-#{$i} {
+      flex-basis: ($i / $total-columns) * 100%;
+      max-width: ($i / $total-columns) * 100%;
+    }
+  }
+}
+
+/*----------------------------------------------------------------
+  column offsets
+----------------------------------------------------------------*/
+
+@mixin column-offsets($size) {
+  @for $i from 1 through $total-columns {
+    .col-#{$size}-offset-#{$i} {
+      margin-left: ($i / $total-columns) * 100%;
+    }
+  }
+}
+
+/*----------------------------------------------------------------
+  column ordering
+----------------------------------------------------------------*/
+
+@mixin column-order($size) {
+  @for $i from 1 through $total-columns {
+    .col-#{$size}-ord-#{$i} {
+      order: $i;
+    }
+  }
+}
+
+
+/*----------------------------------------------------------------
+  columns defaults
+----------------------------------------------------------------*/
+
+[class*="col-"] {
+  flex-basis: 100%;
+  max-width: 100%;
+  padding-right: $gutter-width / 2;
+  padding-left: $gutter-width / 2;
+}
+
+/*----------------------------------------------------------------
+  row
+----------------------------------------------------------------*/
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $gutter-width / 2;
+  padding-left: $gutter-width / 2;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-right: $gutter-width / -2;
+  margin-left: $gutter-width / -2;
+}
+
+.row.reverse {
+  flex-direction: row-reverse;
+}
+
+/*----------------------------------------------------------------
+  css output
+----------------------------------------------------------------*/
+
+@include column-widths(xs);
+@include column-offsets(xs);
+@include column-order(xs);
+@include grid-alignment(xs);
+
+@include breakpoint($small) {
+  @include column-widths(sm);
+  @include column-offsets(sm);
+  @include column-order(sm);
+  @include grid-alignment(sm);
+}
+
+@include breakpoint($medium) {
+  @include column-widths(md);
+  @include column-offsets(md);
+  @include column-order(md);
+  @include grid-alignment(md);
+}
+
+@include breakpoint($large) {
+  @include column-widths(lg);
+  @include column-offsets(lg);
+  @include column-order(lg);
+  @include grid-alignment(lg);
+}
+

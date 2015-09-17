@@ -1,0 +1,18 @@
+/*----------------------------------------------------------------
+  demo styles
+----------------------------------------------------------------*/
+
+body {
+  background-color: #f1f1f1;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+[class*="col-"] {
+  min-height: 2rem;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  margin-bottom: 1em;
+}

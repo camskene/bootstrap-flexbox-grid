@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="dist/css/main.min.css">
+  <title>Bootstrap Flexbox Grid</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Twitter Bootstrap Flexbox Grid</h1>
+    <p>Bootstrap's grid... in Flexbox!</p>
+    <hr />
+    <h2>Example: Stacked-to-Horizontal</h2>
+    <div class="row">
+      <div class="col-sm-1">.col-sm-1</div>
+      <div class="col-sm-1">.col-sm-1</div>
+      <div class="col-sm-1">.col-sm-1</div>
+      <div class="col-sm-1">.col-sm-1</div>
+      <div class="col-sm-1">.col-sm-1</div>
+      <div class="col-sm-1">.col-sm-1</div>
+      <div class="col-sm-1">.col-sm-1</div>
+      <div class="col-sm-1">.col-sm-1</div>
+      <div class="col-sm-1">.col-sm-1</div>
+      <div class="col-sm-1">.col-sm-1</div>
+      <div class="col-sm-1">.col-sm-1</div>
+      <div class="col-sm-1">.col-sm-1</div>
+    </div>
+    <div class="row">
+      <div class="col-md-8">.col-md-8</div>
+      <div class="col-md-4">.col-md-4</div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">.col-md-4</div>
+      <div class="col-md-4">.col-md-4</div>
+      <div class="col-md-4">.col-md-4</div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">.col-md-6</div>
+      <div class="col-md-6">.col-md-6</div>
+    </div>
+
+
+    <h2>Example: Mobile and desktop</h2>
+    <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+    <div class="row">
+      <div class="col-xs-12 col-md-8">.col-xs-12 .col-md-8</div>
+      <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+    </div>
+
+    <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+    <div class="row">
+      <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+      <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+      <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+    </div>
+
+    <!-- Columns are always 50% wide, on mobile and desktop -->
+    <div class="row">
+      <div class="col-xs-6">.col-xs-6</div>
+      <div class="col-xs-6">.col-xs-6</div>
+    </div>
+
+
+    <h2>Example: Mobile, tablet, desktop</h2>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-8">.col-xs-12 .col-sm-6 .col-md-8</div>
+      <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
+      <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
+      <!-- Optional: clear the XS cols if their content doesn't match in height -->
+      <div class="clearfix visible-xs-block"></div>
+      <div class="col-xs-6 col-sm-4">.col-xs-6 .col-sm-4</div>
+    </div>
+
+
+    <h2>Example: Column wrapping</h2>
+    <div class="row">
+      <div class="col-xs-9">.col-xs-9</div>
+      <div class="col-xs-4">.col-xs-4<br>Since 9 + 4 = 13 &gt; 12, this 4-column-wide div gets wrapped onto a new line as one contiguous unit.</div>
+      <div class="col-xs-6">.col-xs-6<br>Subsequent columns continue along the new line.</div>
+    </div>
+
+
+    <h2>Offsetting columns</h2>
+    <div class="row">
+      <div class="col-md-4">.col-md-4</div>
+      <div class="col-md-4 col-md-offset-4">.col-md-4 .col-md-offset-4</div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 col-md-offset-3">.col-md-3 .col-md-offset-3</div>
+      <div class="col-md-3 col-md-offset-3">.col-md-3 .col-md-offset-3</div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">.col-md-6 .col-md-offset-3</div>
+    </div>
+
+
+    <h2>Nesting columns</h2>
+    <div class="row">
+      <div class="col-sm-9">
+        Level 1: .col-sm-9
+        <div class="row">
+          <div class="col-xs-8 col-sm-6">
+            Level 2: .col-xs-8 .col-sm-6
+          </div>
+          <div class="col-xs-4 col-sm-6">
+            Level 2: .col-xs-4 .col-sm-6
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <h2>Column Ordering</h2>
+    <p>Column ordering will still work with Bootstrap's classes `col-$size-push-$int` and `col-$size-pull-$int`.</p>
+
+    <p>However, using Flexbox the `order` property controls the order in which elements appear in the flex container.</p>
+
+    <p>As a bonus of using `order`, elements will retain their given `order` even when placed vertically. To demonstrate, I've implemented the class names `col-$size-ord-$int`</p>
+    <div class="row">
+      <div class="col-xs-9 col-xs-ord-2 col-sm-ord-1">.col-xs-9 .col-xs-ord-2 .col-sm-ord-1</div>
+      <div class="col-xs-3 col-xs-ord-1 col-sm-ord-2">.col-xs-3 .col-xs-ord-1 .col-sm-ord-2</div>
+    </div>
+  </div>
+</body>
+
+</html>
